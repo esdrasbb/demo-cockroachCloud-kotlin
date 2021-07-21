@@ -13,6 +13,12 @@ repositories {
 }
 
 dependencies {
+    compile "org.jetbrains.exposed:exposed-core:$exposed_version"
+    compile "org.jetbrains.exposed:exposed-dao:$exposed_version"
+    compile "org.jetbrains.exposed:exposed-jdbc:$exposed_version"
+
+    compile "org.postgresql:postgresql:$postgres_driver_version"
+
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "ch.qos.logback:logback-classic:$logback_version"

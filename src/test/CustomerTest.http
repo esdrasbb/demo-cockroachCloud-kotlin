@@ -8,7 +8,7 @@ Content-Type: application/json
   "email": "jane.smith@company.com"
 }
 
-~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"id\":\"100\",\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"email\":\"jane.smith@company.com\"}"
+~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"email\":\"jane.smith@company.com\"}"
 
 
 ###
@@ -22,7 +22,7 @@ Content-Type: application/json
   "email": "john.smith@company.com"
 }
 
-~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"id\":\"200\",\"firstName\":\"John\",\"lastName\":\"Smith\",\"email\":\"john.smith@company.com\"}"
+~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"email\":\"john.smith@company.com\"}"
 
 
 ###
@@ -36,7 +36,7 @@ Content-Type: application/json
   "email": "mary.smith@company.com"
 }
 
-~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"id\":\"300\",\"firstName\":\"Mary\",\"lastName\":\"Smith\",\"email\":\"mary.smith@company.com\"}"
+~> curl -H "Content-Type: application/json" -X POST http://127.0.0.1:8080/customer -d "{\"firstName\":\"Mary\",\"lastName\":\"Smith\",\"email\":\"mary.smith@company.com\"}"
 
 
 ###
@@ -44,13 +44,13 @@ GET http://127.0.0.1:8080/customer
 Accept: application/json
 
 ###
-GET http://127.0.0.1:8080/customer/200
+GET http://127.0.0.1:8080/customer/1
 
 ###
-GET http://127.0.0.1:8080/customer/500
+GET http://127.0.0.1:8080/customer/99999
 
 ###
-DELETE http://127.0.0.1:8080/customer/100
+DELETE http://127.0.0.1:8080/customer/1
 
 ###
-DELETE http://127.0.0.1:8080/customer/500
+DELETE http://127.0.0.1:8080/customer/99999

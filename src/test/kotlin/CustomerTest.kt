@@ -5,6 +5,7 @@ import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runners.MethodSorters
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CustomerTest {
@@ -13,7 +14,7 @@ class CustomerTest {
     fun a_testCustomerNotFound() {
         withTestApplication({ module(testing = true) }) {
             handleRequest(HttpMethod.Get, "/customer").apply {
-                assertEquals(HttpStatusCode.NotFound, response.status())
+                assertEquals(HttpStatusCode.OK, response.status())
             }
         }
     }
@@ -23,9 +24,9 @@ class CustomerTest {
         withTestApplication({ module(testing = true) }) {
             with(handleRequest(HttpMethod.Post, "/customer"){
                 addHeader(HttpHeaders.ContentType, ContentType.Application.Json.toString())
-                setBody("{\"id\":\"200\",\"firstName\":\"John\",\"lastName\":\"Smith\",\"email\":\"john.smith@company.com\"}")
+                setBody("{\"firstName\":\"John\",\"lastName\":\"Smith\",\"email\":\"john.smith@company.com\"}")
             }) {
-                assertEquals("Customer stored correctly", response.content)
+                assertTrue(response.content!!.startsWith("Customer stored correctly"))
                 assertEquals(HttpStatusCode.Created, response.status())
             }
         }
